@@ -1,28 +1,30 @@
 import React from 'react'
-import Button, { ButtonType, ButtonSize } from './components/Button/button'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
+import SubMenu from './components/Menu/subMenu'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Menu defaultIndex={0} mode={'vertical'}>
-        <MenuItem index={0}>
+      <Menu defaultIndex={'0'} mode='vertical' defaultOpenSubMenus={['3']}>
+        <MenuItem>
           cool link
         </MenuItem>
-        <MenuItem index={1} disabled>
+        <MenuItem disabled>
           cool link1
         </MenuItem>
-        <MenuItem index={2}>
+        <MenuItem>
           cool link2
         </MenuItem>
+        <SubMenu title='dropdown'>
+          <MenuItem>
+            dropdown link1
+          </MenuItem>
+          <MenuItem>
+            dropdown link2
+          </MenuItem>
+        </SubMenu>
       </Menu>
-      <Button className="tst" disabled> Hello </Button>
-      <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Hello </Button>
-      <Button> Hello </Button>
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}> Hello </Button>
-      <Button btnType={ButtonType.Link} href='http://www.baidu.com'> Baidu Link </Button>
-      <Button btnType={ButtonType.Link} href='http://www.baidu.com' disabled> Baidu Link </Button>
     </div>
   )
 }
